@@ -13,12 +13,11 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "author_id")
-    private Long id;
+   private Long id;
 
     private String firstName;
     private String lastName;
-    @ManyToMany(mappedBy = "Author")
+    @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
     public Author(String firstName, String lastName, Set<Book> books) {
@@ -74,7 +73,6 @@ public class Author {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", books=" + books +
                 '}';
     }
 
